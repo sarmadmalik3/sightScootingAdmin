@@ -1,0 +1,6 @@
+framework module Pods_SightScooting_Admin {
+  umbrella header "Pods-SightScooting Admin-umbrella.h"
+
+  export *
+  module * { export * }
+}
