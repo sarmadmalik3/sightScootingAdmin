@@ -7,4 +7,7 @@ target 'SightScooting Admin' do
 
   # Pods for SightScooting Admin
 pod 'GoogleMaps', '5.0.0'
+pod 'Firebase'
+pod 'Firebase/Storage'
+pod 'Firebase/Database'
 end

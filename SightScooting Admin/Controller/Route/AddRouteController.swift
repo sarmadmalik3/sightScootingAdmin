@@ -83,7 +83,9 @@ class AddRouteController: ParentController {
     
     //MARK:-Properties
     private var locationManager = CLLocationManager()
-    
+    var routeArray = [Route]()
+    var lat: String = ""
+    var long: String = ""
     
     //MARK:-ViewController LifeCycle
     override func viewDidLoad() {
@@ -194,6 +196,8 @@ extension AddRouteController : CLLocationManagerDelegate , GMSMapViewDelegate{
     private func plotMarker(AtCoordinate coordinate : CLLocationCoordinate2D, onMapView vwMap : GMSMapView) {
         let marker = GMSMarker(position: coordinate)
         marker.map = vwMap
+        lat = String(coordinate.latitude)
+        long = String(coordinate.longitude)
         animShow()
     }
     func animShow(){

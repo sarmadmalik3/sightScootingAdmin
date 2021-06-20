@@ -30,6 +30,7 @@
 		049645A0267DDBD90099CD8A /* AddRouteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0496459F267DDBD90099CD8A /* AddRouteController.swift */; };
 		049645A4267DE08A0099CD8A /* Location.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 049645A3267DE08A0099CD8A /* Location.gpx */; };
 		049645A7267FC7650099CD8A /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049645A6267FC7650099CD8A /* ImagePickerManager.swift */; };
+		049645AA267FD3F70099CD8A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049645A9267FD3F70099CD8A /* Route.swift */; };
 		59B4F3AB8C4C09320B1ACEE3 /* Pods_SightScooting_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555D905B3F1CB60665C0A57F /* Pods_SightScooting_Admin.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		0496459F267DDBD90099CD8A /* AddRouteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRouteController.swift; sourceTree = "<group>"; };
 		049645A3267DE08A0099CD8A /* Location.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Location.gpx; sourceTree = "<group>"; };
 		049645A6267FC7650099CD8A /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		049645A9267FD3F70099CD8A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		555D905B3F1CB60665C0A57F /* Pods_SightScooting_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightScooting_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9D01A0EF9894382174342D /* Pods-SightScooting Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightScooting Admin.release.xcconfig"; path = "Target Support Files/Pods-SightScooting Admin/Pods-SightScooting Admin.release.xcconfig"; sourceTree = "<group>"; };
 		8E1BE9B258A5F51577A5B8E5 /* Pods-SightScooting Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightScooting Admin.debug.xcconfig"; path = "Target Support Files/Pods-SightScooting Admin/Pods-SightScooting Admin.debug.xcconfig"; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 		0496458D267DCDC00099CD8A /* Objects */ = {
 			isa = PBXGroup;
 			children = (
+				049645A9267FD3F70099CD8A /* Route.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				0496453E267DC4FE0099CD8A /* Frameworks */,
 				0496453F267DC4FE0099CD8A /* Resources */,
 				1A163DC6ABB9357F9D331E77 /* [CP] Copy Pods Resources */,
+				DBA95652412F58421808DCFB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,6 +330,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DBA95652412F58421808DCFB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SightScooting Admin/Pods-SightScooting Admin-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SightScooting Admin/Pods-SightScooting Admin-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SightScooting Admin/Pods-SightScooting Admin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -338,6 +359,7 @@
 				04964590267DCE370099CD8A /* HomeController.swift in Sources */,
 				04964569267DCB9A0099CD8A /* TextField.swift in Sources */,
 				0496456C267DCB9A0099CD8A /* ImageView.swift in Sources */,
+				049645AA267FD3F70099CD8A /* Route.swift in Sources */,
 				0496456A267DCB9A0099CD8A /* Slider.swift in Sources */,
 				04964598267DCEAF0099CD8A /* HomeCell.swift in Sources */,
 				049645A0267DDBD90099CD8A /* AddRouteController.swift in Sources */,
