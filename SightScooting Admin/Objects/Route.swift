@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 struct Route {
     var lat: String = ""
@@ -14,4 +14,5 @@ struct Route {
     var locationImageUrl: String = ""
     var locationName: String = ""
     var locationDescription: String = ""
+    var image = UIImage()
 }

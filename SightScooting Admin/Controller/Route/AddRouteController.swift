@@ -38,6 +38,7 @@ class AddRouteController: ParentController {
         tf.rightViewMode = .always
         tf.leftViewMode = .always
         tf.tintColor = .black
+        tf.autocorrectionType = .no
         tf.layer.cornerRadius = 10
         tf.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         tf.borderStyle = .none
@@ -80,9 +81,20 @@ class AddRouteController: ParentController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    let doneButton : UIButton = {
+        let button = UIButton()
+        button.setTitle("Done", for: .normal)
+        button.titleLabel?.font = .setFont(fontName: .Poppins_SemiBold, fontSize: 16)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .black
+        button.layer.cornerRadius = 5
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     //MARK:-Properties
     private var locationManager = CLLocationManager()
+    private var marker = GMSMarker()
     var routeArray = [Route]()
     var lat: String = ""
     var long: String = ""
@@ -100,12 +112,15 @@ class AddRouteController: ParentController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(taphandler))
         containerImage.isUserInteractionEnabled = true
         containerImage.addGestureRecognizer(tapGesture)
+        
         addButton.addTarget(self, action: #selector(addButtonHandler), for: .touchUpInside)
+        doneButton.addTarget(self, action: #selector(doneButtonHandler), for: .touchUpInside)
         animHide()
     }
     
     override func setupViews() {
         view.addSubview(mapView)
+        view.addSubview(doneButton)
         view.addSubview(blurView)
         blurView.addSubview(bottomView)
         bottomView.addSubview(addButton)
@@ -119,6 +134,11 @@ class AddRouteController: ParentController {
             mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mapView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             mapView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            doneButton.widthAnchor.constraint(equalToConstant: 150.widthRatio),
+            doneButton.heightAnchor.constraint(equalToConstant: 50.heightRatio),
+            doneButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor , constant: -20.heightRatio),
+            doneButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             blurView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             blurView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
@@ -165,9 +185,31 @@ class AddRouteController: ParentController {
         }
     }
     @objc func addButtonHandler(){
+        let object = Route(lat: lat, long: long, locationImageUrl: "", locationName: nameField.text!, locationDescription: descrpitionTv.text! , image: containerImage.image!)
+        routeArray.append(object)
         animHide()
     }
-
+    
+    @objc func doneButtonHandler(){
+        mapView.clear()
+        var bounds = GMSCoordinateBounds()
+        for data in routeArray {
+            let marker = GMSMarker()
+            marker.position = CLLocationCoordinate2D(latitude: Double(data.lat)!, longitude: Double(data.long)!)
+            marker.userData = data
+            marker.map = mapView
+            bounds = bounds.includingCoordinate(marker.position)
+        }
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 50)
+        mapView.animate(with: update)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(blurViewHandler))
+        blurView.isUserInteractionEnabled = true
+        blurView.addGestureRecognizer(tap)
+    }
+    
+    @objc func blurViewHandler(){
+        animHide()
+    }
 }
 extension AddRouteController : CLLocationManagerDelegate , GMSMapViewDelegate{
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -192,9 +234,18 @@ extension AddRouteController : CLLocationManagerDelegate , GMSMapViewDelegate{
         plotMarker(AtCoordinate: coordinate, onMapView: mapView)
     }
     
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        if let data = marker.userData as? Route {
+            animShow()
+            showRouteData(data: data, userInteraction: false)
+        }
+        return true
+    }
+    
     //MARK:- Plot Marker Helper
     private func plotMarker(AtCoordinate coordinate : CLLocationCoordinate2D, onMapView vwMap : GMSMapView) {
-        let marker = GMSMarker(position: coordinate)
+        
+        marker.position = coordinate
         marker.map = vwMap
         lat = String(coordinate.latitude)
         long = String(coordinate.longitude)
@@ -225,6 +276,16 @@ extension AddRouteController : CLLocationManagerDelegate , GMSMapViewDelegate{
         nameField.text = ""
         placeImage.image = UIImage(named: "image")
         containerImage.image = UIImage()
+    }
+    func showRouteData(data: Route , userInteraction: Bool){
+        nameField.text = data.locationName
+        descrpitionTv.text = data.locationDescription
+        containerImage.image = data.image
+        placeImage.image = UIImage()
+        nameField.isUserInteractionEnabled = userInteraction
+        descrpitionTv.isUserInteractionEnabled = userInteraction
+        containerImage.isUserInteractionEnabled = userInteraction
+        addButton.isHidden = !userInteraction
     }
 }
 
