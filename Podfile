@@ -10,4 +10,5 @@ pod 'GoogleMaps', '5.0.0'
 pod 'Firebase'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
+pod 'IQKeyboardManagerSwift'
 end

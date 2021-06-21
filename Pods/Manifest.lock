@@ -101,6 +101,7 @@ PODS:
   - GoogleUtilities/UserDefaults (7.4.1):
     - GoogleUtilities/Logger
   - GTMSessionFetcher/Core (1.5.0)
+  - IQKeyboardManagerSwift (6.5.6)
   - leveldb-library (1.22.1)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -114,6 +115,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - GoogleMaps (= 5.0.0)
+  - IQKeyboardManagerSwift
 
 SPEC REPOS:
   trunk:
@@ -129,6 +131,7 @@ SPEC REPOS:
     - GoogleMaps
     - GoogleUtilities
     - GTMSessionFetcher
+    - IQKeyboardManagerSwift
     - leveldb-library
     - nanopb
     - PromisesObjC
@@ -146,10 +149,11 @@ SPEC CHECKSUMS:
   GoogleMaps: 600e5e69bdf7f4ed7cac4d6aa96c7ec08a5aa254
   GoogleUtilities: f8a43108b38a68eebe8b3540e1f4f2d28843ce20
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
 
-PODFILE CHECKSUM: a7a67ee94553c6ca3672cc60a653583a5e4ccf49
+PODFILE CHECKSUM: 4ceed3297f147bd979c4df081b4fbd178083b8d3
 
 COCOAPODS: 1.10.1
