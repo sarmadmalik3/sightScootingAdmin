@@ -7,6 +7,11 @@
 
 import Foundation
 import UIKit
+import SDWebImage
+import JGProgressHUD
+
+
+let hud = JGProgressHUD()
 
 enum fontName : String {
    case Poppins_Light = "Poppins-Light"
@@ -24,6 +29,42 @@ extension UIFont {
         return font
     }
 }
+extension UIViewController {
+
+    func showLoadingView(){
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+    }
+    func hideLoadingView(){
+        hud.dismiss()
+    }
+    
+    func showAlertWithoutCompletion(_ message:String) {
+        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+          
+        })
+
+        alert.addAction(ok)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
+    }
+    
+    func showAlert(withTitle title: String, withMessage message:String , completion: @escaping() -> Void) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+            completion()
+        })
+        alert.addAction(ok)
+        DispatchQueue.main.async(execute: {
+            self.present(alert, animated: true)
+        })
+    }
+    
+    
+    
+}
 extension Int{
     var autoSized : CGFloat{
         let screenWidth = UIScreen.main.bounds.size.width
@@ -40,6 +81,14 @@ extension Int{
     var heightRatio: CGFloat {
         let width = UIScreen.main.bounds.height/812.0 //iphone 11pro
         return CGFloat(self)*width
+    }
+}
+extension UIImageView{
+    func downloadImage(url:String){
+      //remove space if a url contains.
+        let stringWithoutWhitespace = url.replacingOccurrences(of: " ", with: "%20", options: .regularExpression)
+        self.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        self.sd_setImage(with: URL(string: stringWithoutWhitespace), placeholderImage: UIImage())
     }
 }
 extension CALayer {
@@ -128,5 +177,16 @@ extension UIView {
             mask.path = path.cgPath
             layer.mask = mask
         }
+    }
+}
+extension String {
+
+    static func random(length: Int = 20) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var s = ""
+        for _ in 0 ..< length {
+            s.append(letters.randomElement()!)
+        }
+        return s
     }
 }

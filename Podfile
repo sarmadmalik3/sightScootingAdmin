@@ -11,4 +11,6 @@ pod 'Firebase'
 pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'IQKeyboardManagerSwift'
+pod 'JGProgressHUD'
+pod 'SDWebImage'
 end

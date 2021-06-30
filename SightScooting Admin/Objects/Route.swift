@@ -16,3 +16,9 @@ struct Route {
     var locationDescription: String = ""
     var image = UIImage()
 }
+
+struct City {
+    var cityName : String = ""
+    var cityImage: String = ""
+    var id: String = ""
+}

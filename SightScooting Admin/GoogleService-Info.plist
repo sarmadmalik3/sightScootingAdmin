@@ -3,32 +3,32 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>397846035036-2ltqatn8899earflbtfr2tooi1vh944v.apps.googleusercontent.com</string>
+	<string>1094043192553-t70ump31h7lg461nasf9hmqe473i4ak5.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.397846035036-2ltqatn8899earflbtfr2tooi1vh944v</string>
+	<string>com.googleusercontent.apps.1094043192553-t70ump31h7lg461nasf9hmqe473i4ak5</string>
 	<key>API_KEY</key>
-	<string>AIzaSyDnhhgfKtdYybOevl7Szd6FvtdC1W8LIa8</string>
+	<string>AIzaSyCsMHUEeu5eO8q3C05PG3VF4lYCGrMTNfc</string>
 	<key>GCM_SENDER_ID</key>
-	<string>397846035036</string>
+	<string>1094043192553</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.sightschooting.admin.SightScooting-Admin</string>
+	<string>com.sightscootingAdmin.app</string>
 	<key>PROJECT_ID</key>
-	<string>sightscooting-1db72</string>
+	<string>sightscooting-bcd5d</string>
 	<key>STORAGE_BUCKET</key>
-	<string>sightscooting-1db72.appspot.com</string>
+	<string>sightscooting-bcd5d.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:397846035036:ios:7127392762f4825c010499</string>
+	<string>1:1094043192553:ios:d1281eb616e0e54b0d7478</string>
 </dict>
 </plist>

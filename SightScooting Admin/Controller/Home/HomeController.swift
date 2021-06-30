@@ -23,6 +23,7 @@ class HomeController: ParentController {
     let noCityLabel = Label(text: "No City Found", textColor: .black, font: .setFont(fontName: .Poppins_SemiBold, fontSize: 25), alingment: .center)
     //MARK:-Properties
     let cellId = "cell"
+    var city = [City]()
     //MARK:-ViewController LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class HomeController: ParentController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .black
         addRightBarButton()
+        getAllCities()
     }
     
     override func setupViews() {
@@ -56,15 +58,27 @@ class HomeController: ParentController {
         let controller = AddRouteImageViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
+    
+    func getAllCities(){
+        showLoadingView()
+        ApiManager.shared.getAllCities { [weak self] city in
+            self?.hideLoadingView()
+            if let city = city {
+                self?.city = city
+                self?.tableView.reloadData()
+            }
+        }
+    }
 }
 extension HomeController : UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return city.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? HomeCell {
-            
+            cell.cityImage.downloadImage(url: city[indexPath.row].cityImage)
+            cell.cityName.text = city[indexPath.row].cityName
             return cell
         }
         return UITableViewCell()

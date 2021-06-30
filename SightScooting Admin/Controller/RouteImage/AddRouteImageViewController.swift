@@ -14,7 +14,7 @@ class AddRouteImageViewController: UIViewController {
     let doneButton = Button(text: "Done", textColor: .white, font: .setFont(fontName: .Poppins_Regular, fontSize: 18), cornerRadious: 10, bgColor: #colorLiteral(red: 0.137254902, green: 0.3019607843, blue: 0.4196078431, alpha: 0.6925567209))
     lazy var addImageButton : UIButton = {
         let button = UIButton()
-        button.setTitle("Add Image", for: .normal)
+        button.setTitle("Select Image", for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.137254902, green: 0.3019607843, blue: 0.4196078431, alpha: 0.6925567209)
         button.layer.cornerRadius = 12
         button.addTarget(self, action: #selector(addImageButtonPressed), for: .touchUpInside)
@@ -28,8 +28,7 @@ class AddRouteImageViewController: UIViewController {
         doneButton.addTarget(self, action: #selector(doneButtonPressed), for: .touchUpInside)
     }
     //MARK:-Helper Method
-    func setUpUI()
-    {
+    func setUpUI(){
         view.addSubview(addImageButton)
         view.addSubview(cityImage)
         view.addSubview(cityTf)
@@ -67,22 +66,34 @@ class AddRouteImageViewController: UIViewController {
             }
         }
     }
-    @objc func doneButtonPressed()
-    {
-        ApiManager.shared.addCity(name: "farhan", imageUrl: "") { (response, error) in
-            
+    @objc func doneButtonPressed(){
+        if cityTf.text == "" {
+            showAlertWithoutCompletion("Please Enter the city name")
+            return
         }
+        addCityData()
         
     }
-    
-
-    
 
 }
-extension AddRouteImageViewController
-{
-    func AddCity()
-    {
+extension AddRouteImageViewController {
     
+    
+    func addCityData(){
+        showLoadingView()
+        ApiManager.shared.uploadMedia(image: cityImage.image!) { [weak self] imageUrl in
+            
+            ApiManager.shared.addCity(name: self?.cityTf.text ?? "", imageUrl: imageUrl!) { response, error in
+                self?.hideLoadingView()
+                if let response = response {
+                    self?.showAlert(withTitle: "Alert", withMessage: response, completion: {
+                        self?.navigationController?.popViewController(animated: true)
+                    })
+                }
+            }
+            
+        }
     }
+    
 }
+
