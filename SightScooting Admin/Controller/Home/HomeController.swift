@@ -53,7 +53,7 @@ class HomeController: ParentController {
     }
 
     @objc func addButtonPressed(){
-        let controller = AddRouteController()
+        let controller = AddRouteImageViewController()
         navigationController?.pushViewController(controller, animated: true)
     }
 }
@@ -72,6 +72,10 @@ extension HomeController : UITableViewDelegate , UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200.heightRatio
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let controller = AddRouteController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
 }

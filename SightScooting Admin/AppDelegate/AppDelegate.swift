@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 import IQKeyboardManagerSwift
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         window = UIWindow(frame: UIScreen.main.bounds)
+        FirebaseApp.configure()
         window?.makeKeyAndVisible()
         window?.rootViewController = UINavigationController(rootViewController: HomeController())
         return true

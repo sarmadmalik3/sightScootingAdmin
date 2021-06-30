@@ -32,6 +32,9 @@
 		049645A7267FC7650099CD8A /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049645A6267FC7650099CD8A /* ImagePickerManager.swift */; };
 		049645AA267FD3F70099CD8A /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049645A9267FD3F70099CD8A /* Route.swift */; };
 		59B4F3AB8C4C09320B1ACEE3 /* Pods_SightScooting_Admin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 555D905B3F1CB60665C0A57F /* Pods_SightScooting_Admin.framework */; };
+		84B97A8E268CA4E10006A1C7 /* AddRouteImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B97A8D268CA4E10006A1C7 /* AddRouteImageViewController.swift */; };
+		84B97A91268CA9360006A1C7 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B97A90268CA9360006A1C7 /* ApiManager.swift */; };
+		84B97A94268CAA3E0006A1C7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84B97A93268CAA3E0006A1C7 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		049645A9267FD3F70099CD8A /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		555D905B3F1CB60665C0A57F /* Pods_SightScooting_Admin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SightScooting_Admin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D9D01A0EF9894382174342D /* Pods-SightScooting Admin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightScooting Admin.release.xcconfig"; path = "Target Support Files/Pods-SightScooting Admin/Pods-SightScooting Admin.release.xcconfig"; sourceTree = "<group>"; };
+		84B97A8D268CA4E10006A1C7 /* AddRouteImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddRouteImageViewController.swift; path = ../../../../../../Documents/AddRouteImageViewController.swift; sourceTree = "<group>"; };
+		84B97A90268CA9360006A1C7 /* ApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		84B97A93268CAA3E0006A1C7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8E1BE9B258A5F51577A5B8E5 /* Pods-SightScooting Admin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SightScooting Admin.debug.xcconfig"; path = "Target Support Files/Pods-SightScooting Admin/Pods-SightScooting Admin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -107,6 +113,7 @@
 				0496454F267DC5000099CD8A /* LaunchScreen.storyboard */,
 				0496454D267DC5000099CD8A /* Assets.xcassets */,
 				04964552267DC5000099CD8A /* Info.plist */,
+				84B97A93268CAA3E0006A1C7 /* GoogleService-Info.plist */,
 				049645A3267DE08A0099CD8A /* Location.gpx */,
 			);
 			path = "SightScooting Admin";
@@ -150,6 +157,7 @@
 		04964589267DCD940099CD8A /* Helper Files */ = {
 			isa = PBXGroup;
 			children = (
+				84B97A90268CA9360006A1C7 /* ApiManager.swift */,
 				04964559267DCB9A0099CD8A /* Custom Controls */,
 				04964571267DCBEA0099CD8A /* Constant.swift */,
 				04964572267DCBEA0099CD8A /* Extension.swift */,
@@ -160,6 +168,7 @@
 		0496458C267DCDB20099CD8A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				84B97A82268CA2FE0006A1C7 /* RouteImage */,
 				04964592267DCE480099CD8A /* ParentController.swift */,
 				04964595267DCE8B0099CD8A /* Home */,
 				0496459E267DDBAB0099CD8A /* Route */,
@@ -198,6 +207,14 @@
 				0496459F267DDBD90099CD8A /* AddRouteController.swift */,
 			);
 			path = Route;
+			sourceTree = "<group>";
+		};
+		84B97A82268CA2FE0006A1C7 /* RouteImage */ = {
+			isa = PBXGroup;
+			children = (
+				84B97A8D268CA4E10006A1C7 /* AddRouteImageViewController.swift */,
+			);
+			path = RouteImage;
 			sourceTree = "<group>";
 		};
 		ED02F4B30E2E86A4DFFFD893 /* Pods */ = {
@@ -279,6 +296,7 @@
 			files = (
 				04964551267DC5000099CD8A /* LaunchScreen.storyboard in Resources */,
 				0496454E267DC5000099CD8A /* Assets.xcassets in Resources */,
+				84B97A94268CAA3E0006A1C7 /* GoogleService-Info.plist in Resources */,
 				049645A4267DE08A0099CD8A /* Location.gpx in Resources */,
 				0496457F267DCC1E0099CD8A /* Poppins-Bold.ttf in Resources */,
 				0496457E267DCC1E0099CD8A /* Poppins-Regular.ttf in Resources */,
@@ -357,12 +375,14 @@
 				04964565267DCB9A0099CD8A /* UiView.swift in Sources */,
 				04964573267DCBEA0099CD8A /* Constant.swift in Sources */,
 				04964590267DCE370099CD8A /* HomeController.swift in Sources */,
+				84B97A8E268CA4E10006A1C7 /* AddRouteImageViewController.swift in Sources */,
 				04964569267DCB9A0099CD8A /* TextField.swift in Sources */,
 				0496456C267DCB9A0099CD8A /* ImageView.swift in Sources */,
 				049645AA267FD3F70099CD8A /* Route.swift in Sources */,
 				0496456A267DCB9A0099CD8A /* Slider.swift in Sources */,
 				04964598267DCEAF0099CD8A /* HomeCell.swift in Sources */,
 				049645A0267DDBD90099CD8A /* AddRouteController.swift in Sources */,
+				84B97A91268CA9360006A1C7 /* ApiManager.swift in Sources */,
 				04964574267DCBEA0099CD8A /* Extension.swift in Sources */,
 				04964568267DCB9A0099CD8A /* ImageWithBtn.swift in Sources */,
 				04964545267DC4FE0099CD8A /* AppDelegate.swift in Sources */,
