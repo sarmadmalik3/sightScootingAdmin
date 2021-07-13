@@ -74,5 +74,67 @@ class ApiManager {
             completion(cityModel)
         }
     }
- 
+    
+    func getRoutesFromCity(_ cityId: String ,completion: @escaping(_ route: [Route]?) -> ()){
+        
+        var routeArray = [Route]()
+        var routeObject = Route()
+        ref.child("City").child(cityId).child("routes").observeSingleEvent(of: .value) { snapShot in
+            for child in snapShot.children {
+                
+                let snap = child as! DataSnapshot
+                
+                if let value = snap.value as? [String: Any]{
+                    
+                    if let lat = value["lat"] as? String {
+                        routeObject.lat = lat
+                    }
+                    if let long = value["lng"] as? String {
+                        routeObject.long = long
+                    }
+                    if let locationDesc = value["locationDescription"] as? String {
+                        routeObject.locationDescription = locationDesc
+                    }
+                    if let locationName = value["locationName"] as? String {
+                        routeObject.locationName = locationName
+                    }
+                    if let showMore = value["showMoreUrlString"] as? String {
+                        routeObject.showMoreUrlString = showMore
+                    }
+                    
+                    if let buyTicket = value["buyTicketUrlString"] as? String {
+                        routeObject.buyTicketUrlString = buyTicket
+                    }
+                    
+                    if let imageUrl = value["imageUrl"] as? String {
+                        routeObject.locationImageUrl = imageUrl
+                    }
+                    
+                    routeArray.append(routeObject)
+                }
+            }
+            
+            completion(routeArray)
+        }
+    }
+    
+    func addRoutesInCity(_ cityId: String, _ routeObject: Route, completion:@escaping(_ sucess:String)->()){
+        
+        ref.child("City").child(cityId).child("routes").childByAutoId().setValue(
+            [
+                "lat" : routeObject.lat,
+                "lng": routeObject.long,
+                "locationName": routeObject.locationName,
+                "locationDescription": routeObject.locationDescription,
+                "showMoreUrlString": routeObject.showMoreUrlString,
+                "buyTicketUrlString": routeObject.buyTicketUrlString,
+                "imageUrl": routeObject.locationImageUrl
+            ]) { error, response in
+            
+            if error == nil {
+                completion("")
+            }
+            
+        }
+    }
 }

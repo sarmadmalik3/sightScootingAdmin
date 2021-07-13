@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0484FB10269B12BE00E7BC1E /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0484FB0F269B12BE00E7BC1E /* WebViewController.swift */; };
 		04964545267DC4FE0099CD8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04964544267DC4FE0099CD8A /* AppDelegate.swift */; };
 		0496454E267DC5000099CD8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0496454D267DC5000099CD8A /* Assets.xcassets */; };
 		04964551267DC5000099CD8A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0496454F267DC5000099CD8A /* LaunchScreen.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0484FB0F269B12BE00E7BC1E /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		04964541267DC4FE0099CD8A /* SightScooting Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SightScooting Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04964544267DC4FE0099CD8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0496454D267DC5000099CD8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				04964592267DCE480099CD8A /* ParentController.swift */,
 				04964595267DCE8B0099CD8A /* Home */,
 				0496459E267DDBAB0099CD8A /* Route */,
+				0484FB0F269B12BE00E7BC1E /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0484FB10269B12BE00E7BC1E /* WebViewController.swift in Sources */,
 				04964565267DCB9A0099CD8A /* UiView.swift in Sources */,
 				04964573267DCBEA0099CD8A /* Constant.swift in Sources */,
 				04964590267DCE370099CD8A /* HomeController.swift in Sources */,

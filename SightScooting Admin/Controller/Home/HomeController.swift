@@ -89,6 +89,8 @@ extension HomeController : UITableViewDelegate , UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let controller = AddRouteController()
+        controller.cityId = city[indexPath.row].id
+        controller.routeArray = city[indexPath.row].routeObject
         navigationController?.pushViewController(controller, animated: true)
     }
     

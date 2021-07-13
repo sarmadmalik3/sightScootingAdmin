@@ -14,11 +14,13 @@ struct Route {
     var locationImageUrl: String = ""
     var locationName: String = ""
     var locationDescription: String = ""
-    var image = UIImage()
+    var showMoreUrlString: String = ""
+    var buyTicketUrlString: String = ""
 }
 
 struct City {
     var cityName : String = ""
     var cityImage: String = ""
     var id: String = ""
+    var routeObject = [Route]()
 }

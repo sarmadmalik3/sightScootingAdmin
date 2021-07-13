@@ -19,7 +19,7 @@ struct appColors {
 
 struct Constant {
     
-    static let gooleApiKey = "AIzaSyD0GP_3Y3iV8wlhMbCGiqJjuK9i_-d7rig"
+    static let gooleApiKey = "AIzaSyBxNEL-X6bCE7XwmVMegpTZKRQsa5xyP4s"
     
     public static func screenWidth()->CGFloat{
         var width: CGFloat = 0
